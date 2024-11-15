@@ -15,6 +15,8 @@ currentItem  = new currentBid()
 bidHistory : getAcuHistory[] = []
 completedList : completedList[]=[]
 destroy$ = new Subject<boolean>()
+destroyHistory$ = new Subject<boolean>()
+historyInterval:any;
 ngOnDestroy(){
   this.destroy$.next(true)
   this.destroy$.unsubscribe();
@@ -25,16 +27,31 @@ ngOnDestroy(){
       next : (resp:currentBid[])=>{
         console.log()
         this.currentItem = resp[0]
-        this.getHistory()
+        if(resp.length){
+          if(!this.historyInterval){
+          this.loophistory()
+        }
+        }else{
+          console.log(this.historyInterval)
+          clearInterval(this.historyInterval)
+        } 
       }
     })
   }
+  loophistory(){
+    this.historyInterval = setInterval(()=> {this.getHistory()}, 2000)
+    
+  }
   getHistory(){
-    this.mainService.getCurrentHistory().subscribe({
+    this.mainService.getCurrentHistory().pipe(takeUntil(this.destroyHistory$)).subscribe({
       next : (resp: getAcuHistory[])=>{
         this.bidHistory = resp
+        this.destroyHistory$.next(true)
+        this.destroyHistory$.complete()
       }
     })
+   
+
   }
   bid(){
     let dateTime = new Date()
@@ -50,7 +67,6 @@ ngOnDestroy(){
     console.log(prepareBid)
     this.mainService.postCurrentHistory(prepareBid).subscribe({
       next: ()=>{
-        this.getHistory()
       }
     })
 
