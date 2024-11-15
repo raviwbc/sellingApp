@@ -1,0 +1,46 @@
+.itemDetails{
+    background: #bafbac;    
+    display: flex;
+    padding: 10px 20px;
+    justify-content: space-between;
+    .itemName {  
+        // font-size: 24px;    
+        // font-weight: 600;
+        .name{
+            font-size: 24px;
+            font-weight: 600;
+        }
+        span{
+            // font-size: 14px;
+        }
+    }
+    .prize_data{
+        .lable{
+            font-size: 14px;
+        }
+        .prize{
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+
+    }
+    .bid_btn{
+        padding: 15px 0;
+    }
+}
+.bid_history, .completed_history{
+    width: 350px;
+    margin-top: 10px;
+    .heading{
+        background: #000;
+        color: #fff;
+        padding: 8px;
+        font-weight: 400;
+        font-size: 18px;
+    }
+    div.content{
+        border: 1px solid #eee;
+        padding: 5px 10px;
+    }
+}

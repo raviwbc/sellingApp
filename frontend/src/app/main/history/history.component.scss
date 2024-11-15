@@ -1,0 +1,15 @@
+.bid_history, .completed_history{
+    width: 350px;
+    margin-top: 10px;
+    .heading{
+        background: #000;
+        color: #fff;
+        padding: 8px;
+        font-weight: 400;
+        font-size: 18px;
+    }
+    div.content{
+        border: 1px solid #eee;
+        padding: 5px 10px;
+    }
+}

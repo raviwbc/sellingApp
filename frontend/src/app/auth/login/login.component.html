@@ -1,0 +1,16 @@
+<div>
+    <img src="assets/image/players.jpg" alt="example image" class="rounded-image">
+</div>
+<div class="formContainer">
+    <div class="innerContain">
+        <h3>Let's Go..!</h3>
+        <form [formGroup]="loginForm">
+        <input class="form-control" type="text" placeholder="Enter your name" formControlName = "username">
+        <input class="form-control" type="text" placeholder="Enter your name" formControlName = "password">
+        <button type="button" class="btn btn-primary mx-2 outline-btn" (click)="redirectTo()">REGISTER</button>
+        <button type="button" class="btn btn-primary main-btn" (click)="fetch()">SUBMIT</button>
+     
+    </form>
+    </div>
+  
+</div>

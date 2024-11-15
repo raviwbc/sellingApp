@@ -1,0 +1,160 @@
+{
+  "registration": [
+    {
+      "name": "Ravi",
+      "tname": "EXO",
+      "base_prize": 100,
+      "avaibale_members": 6,
+      "username": "ravis",
+      "pass": "123456",
+      "id": "224c"
+    }
+  ],
+  "currentBid": [],
+  "currentautHistory": [],
+  "completedList": [
+    {
+      "id": "1",
+      "pname": "Billal",
+      "tname": "Exo",
+      "prize": 10,
+      "bid_history": []
+    },
+    {
+      "id": "e1c2",
+      "pname": "Ravi",
+      "tname": "EXO",
+      "prize": 3,
+      "bid_history": [
+        {
+          "id": "c3c7",
+          "team": "EXO",
+          "pname": "Ravi",
+          "time": 1731589115645,
+          "prize": 2.5,
+          "date": 14
+        },
+        {
+          "id": "a176",
+          "team": "EXO",
+          "pname": "Ravi",
+          "time": 1731589253001,
+          "prize": 2.75,
+          "date": 14
+        },
+        {
+          "id": "c387",
+          "team": "EXO",
+          "pname": "Ravi",
+          "time": 1731589254785,
+          "prize": 3,
+          "date": 14
+        }
+      ]
+    },
+    {
+      "id": "306f",
+      "pname": "Sanjai",
+      "tname": "EXO",
+      "prize": 2.5,
+      "bid_history": [
+        {
+          "id": "7613",
+          "team": "EXO",
+          "pname": "Sanjai",
+          "time": 1731589936215,
+          "prize": 1.5,
+          "date": 14
+        },
+        {
+          "id": "9fb5",
+          "team": "EXO",
+          "pname": "Sanjai",
+          "time": 1731589970175,
+          "prize": 1.75,
+          "date": 14
+        },
+        {
+          "id": "ac69",
+          "team": "EXO",
+          "pname": "Sanjai",
+          "time": 1731590014718,
+          "prize": 2,
+          "date": 14
+        },
+        {
+          "id": "90ae",
+          "team": "EXO",
+          "pname": "Sanjai",
+          "time": 1731590016182,
+          "prize": 2.25,
+          "date": 14
+        },
+        {
+          "id": "80bb",
+          "team": "EXO",
+          "pname": "Sanjai",
+          "time": 1731590016990,
+          "prize": 2.5,
+          "date": 14
+        }
+      ]
+    },
+    {
+      "id": "1985",
+      "pname": "Sanjai s",
+      "tname": "EXO",
+      "prize": 2.5,
+      "bid_history": [
+        {
+          "id": "6d4c",
+          "team": "EXO",
+          "pname": "Sanjai s",
+          "time": 1731590331227,
+          "prize": 2.25,
+          "date": 14
+        },
+        {
+          "id": "c129",
+          "team": "EXO",
+          "pname": "Sanjai s",
+          "time": 1731590344827,
+          "prize": 2.5,
+          "date": 14
+        }
+      ]
+    },
+    {
+      "id": "59bb",
+      "pname": "Parthiban",
+      "tname": "EXO",
+      "prize": 2.25,
+      "bid_history": [
+        {
+          "id": "59f0",
+          "team": "EXO",
+          "pname": "Parthiban",
+          "time": 1731591328836,
+          "prize": 1.75,
+          "date": 14
+        },
+        {
+          "id": "8f41",
+          "team": "EXO",
+          "pname": "Parthiban",
+          "time": 1731591335660,
+          "prize": 2,
+          "date": 14
+        },
+        {
+          "id": "5cbd",
+          "team": "EXO",
+          "pname": "Parthiban",
+          "time": 1731591336060,
+          "prize": 2.25,
+          "date": 14
+        }
+      ]
+    }
+  ]
+}

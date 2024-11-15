@@ -1,0 +1,37 @@
+
+<section *ngIf="!this.currentItem">
+    <div>Create {{item}}</div>
+<form [formGroup]="bidCreateForm" (ngSubmit)="bidCreate()">
+    <div class="mb-3">
+        <label for="pname" class="form-label">Name</label>
+        <input formControlName="pname" type="text" class="form-control" id="pname">
+      </div>
+      <div class="mb-3">
+        <label for="country" class="form-label">Country</label>
+        <input formControlName="country" type="text" class="form-control" id="country">
+      </div>
+      <div class="mb-3">
+        <label for="base_p" class="form-label">Prize</label>
+        <input formControlName="base" type="number" class="form-control" id="base_p">
+      </div>
+      <div>
+        <button type="submit" class="btn btn-primary">Create {{item}}</button>
+      </div>
+</form>
+</section>
+<section>
+    <div class="itemDetails" *ngIf="this.currentItem">
+        <div class="itemName">
+        <div> Product/Item Name&nbsp;    </div>
+        <div class="name">{{currentItem.name}}<span>({{currentItem.Country}})</span></div>
+        </div>
+        <div class="prize_data">
+            <div class="lable">Base Prize</div>
+            <div class="prize">({{currentItem.base_p}} Cr)</div>
+            </div>
+        </div>
+</section>
+<button *ngIf="currentItem" type="button" class="btn btn-primary" (click)="stopBid()">Completed {{item}}</button>
+<div *ngIf="bidHistory.length">
+    <app-history [data]="bidHistory"></app-history>
+</div>

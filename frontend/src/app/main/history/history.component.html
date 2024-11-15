@@ -1,0 +1,15 @@
+
+<div class="bid_history" *ngIf="bidHistory.length">
+    <div class="heading">History</div>
+    <div class="content" *ngFor="let item of bidHistory">
+        {{item.team}} - {{item.prize}}
+    </div>
+</div>
+
+<div class="completed_history" *ngIf="completedList.length">
+    <div class="heading">Completed Items</div>
+    <div *ngFor="let item of completedList">
+      <div class="d-flex justify-content-between content">  <div>{{item.pname}}({{item.tname}})</div>
+      <div>{{item.prize}}</div></div>
+    </div>
+</div>

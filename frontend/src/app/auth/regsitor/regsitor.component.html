@@ -1,0 +1,18 @@
+<div>
+    <img src="assets/image/players.jpg" alt="example image" class="rounded-image">
+</div>
+
+<div class="formContainer">
+    <h3>Here to begin..!</h3>
+    <form [formGroup]="registerForm">
+    <input class="form-control" type="text" placeholder="Enter your name" formControlName = "name">
+    <!-- <input class="form-control" type="text" placeholder="Enter your team name" formControlName = "teamName" > -->
+    <select class="form-select" aria-label="Select Team Name" formControlName = "teamName" style="margin-top: 20px;">
+        <option *ngFor="let item of teamList">{{item.teamName}}</option>
+      </select>
+    <input class="form-control" type="text" placeholder="Enter the base price " formControlName = "basePrice">
+    <input class="form-control" type="text" placeholder="Enter the available members " formControlName = "avlMembers">
+    <button type="button" class="btn btn-primary  outline-btn mx-2" (click)="redirectTo()">LOGIN</button>
+    <button type="button" class="btn btn-primary main-btn" (click)="fetch()">SUBMIT</button>
+</form>
+</div>

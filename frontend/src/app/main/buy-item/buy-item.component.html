@@ -1,0 +1,28 @@
+
+<div class="itemDetails" *ngIf="currentItem">
+<div class="itemName">
+<div> Product/Item Name&nbsp;    </div>
+<div class="name">{{currentItem.name}}<span>({{currentItem.Country}})</span></div>
+<div class="bid_btn">
+    <button *ngIf="this.bidHistory.length == 0" type="button" (click)="bid()" class="btn  btn-success">
+        Bid the Product At for {{this.currentItem.base_p + 0.25}}
+    </button>
+    <button *ngIf="this.bidHistory.length" type="button" (click)="bid()" class="btn  btn-success">Bid the Product At for {{this.bidHistory[this.bidHistory.length - 1].prize == 0 ? this.currentItem.base_p : this.bidHistory[this.bidHistory.length - 1].prize + 0.25}}</button>
+</div>
+</div>
+<div class="prize_data">
+    <div class="lable">Base Prize</div>
+    <div class="prize">({{currentItem.base_p}} Cr)</div>
+    </div>
+</div>
+<div>
+<div *ngIf="bidHistory.length">
+    <app-history [data]="bidHistory"></app-history>
+</div>
+
+<div *ngIf="completedList.length">
+<app-history  [data_comp]="completedList"></app-history>
+</div>
+</div>
+
+
