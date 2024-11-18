@@ -57,7 +57,7 @@ ngOnDestroy(){
   bid(){
     let dateTime = new Date()
     let prize = this.bidHistory.length ? this.bidHistory[this.bidHistory.length - 1].prize == 0 ? this.currentItem.base_p : this.bidHistory[this.bidHistory.length - 1].prize : this.currentItem.base_p;
-    const team = sessionStorage.getItem('team');
+    const team = localStorage.getItem('team');
     if(!team){
       this.toastr.error('Team not updated Contect Admin')
       return
