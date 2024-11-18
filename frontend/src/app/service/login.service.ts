@@ -13,6 +13,9 @@ export class LoginService {
   registor():Observable<any>{
     return this.http.get(`${APP_CONSTANTS.SERVICE_BASE_URL}${APP_CONSTANTS.API.REGISTOR}`)
   }
+  login(data:any):Observable<any>{
+    return this.http.post(`${APP_CONSTANTS.SERVICE_BASE_URL}${APP_CONSTANTS.API.LOGIN}`, data)
+  }
   postRegister(data:any):Observable<any>{
     return this.http.post(`${APP_CONSTANTS.SERVICE_BASE_URL}${APP_CONSTANTS.API.REGISTOR}`,data)
   }

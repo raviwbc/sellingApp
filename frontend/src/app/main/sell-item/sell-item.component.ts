@@ -39,7 +39,7 @@ export class SellItemComponent implements OnInit, OnDestroy {
       let bidPost = {
         name: data.pname,
         Country: data.country,
-        Records: [],
+        Records: JSON.stringify([]),
         base_p: data.base
       }
       this.mainService.postCurrentBid(bidPost).subscribe({
@@ -67,7 +67,7 @@ export class SellItemComponent implements OnInit, OnDestroy {
       pname : finaldata.pname,
       tname : finaldata.team,
       prize : finaldata.prize,
-      bid_history : this.bidHistory
+      bid_history : JSON.stringify(this.bidHistory)
     }
     this.mainService.updateCompleteList(data).subscribe({
       next : ()=> {
@@ -78,13 +78,9 @@ export class SellItemComponent implements OnInit, OnDestroy {
       }
     })
   }
+
   deleteAllHistory(){
-    this.bidHistory.forEach(element => {
-      this.deleteBid(element.id)
-    });
-  }
-  deleteBid(id:string){
-    this.mainService.deleteCurrentHistory(id).subscribe({
+    this.mainService.deleteAllCurrentHistory().subscribe({
       next: ()=>{
         this.getHistory()
       }

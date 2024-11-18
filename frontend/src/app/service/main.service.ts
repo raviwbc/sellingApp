@@ -39,6 +39,9 @@ export class MainService {
   deleteCurrentHistory(id:string):Observable<any>{
     return this.http.delete(`${APP_CONSTANTS.SERVICE_BASE_URL}${APP_CONSTANTS.API.CURRENTAUTHIS}/${id}`)
   }
+  deleteAllCurrentHistory():Observable<any>{
+    return this.http.delete(`${APP_CONSTANTS.SERVICE_BASE_URL}${APP_CONSTANTS.API.CURRENTAUTHIS}`)
+  }
   updateCompleteList(data:any){
     return this.http.post(`${APP_CONSTANTS.SERVICE_BASE_URL}${APP_CONSTANTS.API.COMPLETEDLIST}`, data)
   }

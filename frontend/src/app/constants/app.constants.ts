@@ -3,7 +3,7 @@ export const APP_CONSTANTS = {
     API: {
 
         // FIND BOOKING DETAILS 
-
+        LOGIN : '/login',
         REGISTOR: '/registration',
 
         CURRENTBID : '/currentBid',

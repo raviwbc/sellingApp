@@ -6,7 +6,7 @@ const config = {
   user: 'sa',    // Replace with your database username
   password: 'Wbcuser_1',// Replace with your database password
   server: '192.168.1.107',    // Replace with your server name or IP
-  database: 'test_db',// Replace with your database name
+  database: 'test_db_new',// Replace with your database name
   options: {
     encrypt: true, // For Azure, set to true
     trustServerCertificate: true // For local dev, set to true

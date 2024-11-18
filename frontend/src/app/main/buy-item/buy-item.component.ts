@@ -1,4 +1,5 @@
 import { Component, OnDestroy } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { Subject,takeUntil } from 'rxjs';
 import { completedList, currentBid, getAcuHistory } from 'src/app/model/main';
 import { MainService } from 'src/app/service/main.service';
@@ -9,7 +10,7 @@ import { MainService } from 'src/app/service/main.service';
   styleUrls: ['./buy-item.component.scss']
 })
 export class BuyItemComponent implements OnDestroy{
-constructor (private mainService :MainService){}
+constructor (private mainService :MainService, private toastr : ToastrService){}
 
 currentItem  = new currentBid()
 bidHistory : getAcuHistory[] = []
@@ -39,7 +40,7 @@ ngOnDestroy(){
     })
   }
   loophistory(){
-    this.historyInterval = setInterval(()=> {this.getHistory()}, 2000)
+    this.historyInterval = setInterval(()=> {this.getHistory()}, 5000)
     
   }
   getHistory(){
@@ -56,17 +57,22 @@ ngOnDestroy(){
   bid(){
     let dateTime = new Date()
     let prize = this.bidHistory.length ? this.bidHistory[this.bidHistory.length - 1].prize == 0 ? this.currentItem.base_p : this.bidHistory[this.bidHistory.length - 1].prize : this.currentItem.base_p;
-    
+    const team = sessionStorage.getItem('team');
+    if(!team){
+      this.toastr.error('Team not updated Contect Admin')
+      return
+    }
     let prepareBid = {
-      "team": "EXO",
+      "team": team,
     "pname": this.currentItem.name,
     "time": dateTime.getTime(),
     "prize": prize + 0.25,
-    "date": dateTime.getDate()
+    "date": dateTime.getDay()
     }
     console.log(prepareBid)
     this.mainService.postCurrentHistory(prepareBid).subscribe({
-      next: ()=>{
+      next: (res)=>{
+        res?.statuscode == 201 ?this.toastr.success(res.message) : this.toastr.error(res.message)
       }
     })
 

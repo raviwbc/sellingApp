@@ -17,13 +17,14 @@ exports.getRecordById = async (id) => {
 };
 
 exports.createRecord = async (data) => {
+  console.log(data)
   const pool = await poolPromise;
   const result = await pool
     .request()
     .input('pname', data.name)
     .input('tname', data.tname)
-    .input('bid_history', data.base_prize)
-    .input('prize', data.available_members)
+    .input('bid_history', data.bid_history)
+    .input('prize', data.prize)
     .query(
       `INSERT INTO completed_list (pname, tname, bid_history, prize) 
        OUTPUT INSERTED.* VALUES (@pname, @tname, @bid_history, @prize)`
@@ -37,8 +38,8 @@ exports.updateRecord = async (id, data) => {
     .request()
     .input('pname', data.name)
     .input('tname', data.tname)
-    .input('bid_history', data.base_prize)
-    .input('prize', data.available_members)
+    .input('bid_history', data.bid_history)
+    .input('prize', data.prize)
     .query(
       `UPDATE completed_list SET 
       pname = @pname, 

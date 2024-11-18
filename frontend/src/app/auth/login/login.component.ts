@@ -17,30 +17,26 @@ export class LoginComponent implements OnInit{
   })
 registerData:any[]=[]
   ngOnInit(): void {
-    this.loginService.registor().subscribe({
-      next:(res:any)=>{
-        this.registerData=res
-      }
-    })
+    localStorage.removeItem('BidingAppToken')
   }
   fetch(){
     debugger
     console.log('login data',this.loginForm.value.username);
     console.log('registerData',  this.registerData);
-    if(this.loginForm.controls['username'].value != '' && this.loginForm.controls['password'].value != ''){
-    let isAvailable = this.registerData.find((res:any)=>res.username == this.loginForm.value.username && res.password == this.loginForm.value.password )
-    if(isAvailable){
-      this.toastr.success('Welcome to prizzy!')
-      this.route.navigateByUrl('/auth/registor')
+    if(this.loginForm.valid){
+    this.loginService.login(this.loginForm.value).subscribe({
+      next:(res)=>{
+        if(res.status== 200){
+          localStorage.setItem('BidingAppToken', res.jwtToken)
+          this.toastr.success(res?.message) 
+          this.route.navigateByUrl('/main')
+        }
+          else{  this.toastr.error(res?.message) }
+        
+      }
 
-    }else{
-      this.toastr.error('Cannot find your credentials!')
-    }
-    }else{
-      this.toastr.error('Please fill all the field!')
-    }
-    
-  }
+    })
+  }}
   redirectTo(){
     this.route.navigateByUrl('/auth/registor')
   }
