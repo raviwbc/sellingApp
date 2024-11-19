@@ -9,7 +9,8 @@ export const APP_CONSTANTS = {
         CURRENTBID : '/currentBid',
         CURRENTAUTHIS : '/currentautHistory',
         COMPLETEDLIST :'/completedList',
-        TEAMLIST:'/teams'
+        TEAMLIST:'/teams',
+        CURRENTUSER : '/currentUser'
         
     }
 }

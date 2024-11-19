@@ -86,6 +86,11 @@ ngOnDestroy(){
     })
   }
   ngOnInit(){
+    this.mainService.getCurrentUser().subscribe({
+      next : ()=>{
+        
+      }
+    })
     this.getCurrentBid()
     this.completedItems()
     setInterval(()=> this.getCurrentBid(), 10000)

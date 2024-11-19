@@ -20,3 +20,16 @@ exports.loginAccount = async (req, res) => {
       res.status(500).json({ error: 'login failed' });
     }
   };
+
+exports.currentUser = async (req, res) => {
+  const data = req.user;
+  console.log(data)
+  const currentUser = {
+    available_members : data.available_members,
+    base_prize : data.base_prize,
+    userType : data.userType,
+    username : data.username,
+    tname : data.tname,
+  }
+  res.json(currentUser);
+}

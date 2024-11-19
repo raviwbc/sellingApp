@@ -8,6 +8,7 @@ import { BuyItemComponent } from './buy-item/buy-item.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HistoryComponent } from './history/history.component';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { HistoryComponent } from './history/history.component';
     SellItemComponent,
     MainComponent,
     BuyItemComponent,
-    HistoryComponent
+    HistoryComponent,
+    HomeComponent
   ],
   imports: [
     CommonModule,

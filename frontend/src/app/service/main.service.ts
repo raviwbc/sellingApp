@@ -20,7 +20,9 @@ export class MainService {
 
   
 
-
+getCurrentUser():Observable<any>{
+  return this.http.get(`${APP_CONSTANTS.SERVICE_BASE_URL}${APP_CONSTANTS.API.CURRENTUSER}`)
+}
   getCurrentBid(): Observable<any>{
     return this.http.get(`${APP_CONSTANTS.SERVICE_BASE_URL}${APP_CONSTANTS.API.CURRENTBID}`)
   }
