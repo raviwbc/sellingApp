@@ -10,7 +10,6 @@ exports.loginAccount = async (req, res) => {
       if(records == 1){
         const user  = {name : "ravi"}
         const token = jwt.sign(user, SECRET_KEY, { expiresIn: '1h' }); // 1 hour expiration
-
         res.json({message : 'Login successfully', jwtToken : token, status: 200});
       }else{
         res.json({message : 'user not exist', status: 404});

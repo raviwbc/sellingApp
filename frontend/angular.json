@@ -20,6 +20,7 @@
             "outputPath": "dist/prize-management",
             "index": "src/index.html",
             "main": "src/main.ts",
+            "baseHref": "/bid/",
             "polyfills": [
               "zone.js"
             ],

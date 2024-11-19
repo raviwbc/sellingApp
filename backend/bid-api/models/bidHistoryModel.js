@@ -18,12 +18,9 @@ exports.getRecordById = async (id) => {
 
 exports.createRecord = async (data) => {
   const pool = await poolPromise;
-  console.log('1')
   const topPrize = await pool.request().query('select top 1 * from bidHistorylist ORDER BY Prize DESC')
-  console.log(topPrize)
   const maxValue = topPrize.recordset.length ? topPrize.recordset[0]?.prize : 0;
-  const bidTeam = topPrize.recordset.length ? topPrize.recordset[0]?.team : ''
-  console.log(maxValue)
+  const bidTeam = topPrize.recordset.length ? topPrize.recordset[0]?.team : '';
   if(maxValue <  data.prize && bidTeam != data.team){  
   const result = await pool
     .request()
