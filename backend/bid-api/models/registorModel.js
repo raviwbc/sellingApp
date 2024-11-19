@@ -27,10 +27,10 @@ exports.createRecord = async (data) => {
     .input('base_prize', 0)
     .input('available_members', 0)
     .input('username', data.userName)
-    .input('pass', data.password)
+    .input('password', data.password)
     .query(
-      `INSERT INTO registration (name, tname, userType, base_prize, avaibale_members, username, pass) 
-       OUTPUT INSERTED.* VALUES (@name, @tname, @userType, @base_prize, @available_members, @username, @pass)`
+      `INSERT INTO registration (name, tname, userType, base_prize, available_members, username, password) 
+       OUTPUT INSERTED.* VALUES (@name, @tname, @userType, @base_prize, @available_members, @username, @password)`
     );
     console.log(result)
   return result.recordset[0];
@@ -46,7 +46,7 @@ exports.updateRecord = async (id, data) => {
     .input('base_prize', data.base_prize)
     .input('available_members', data.available_members)
     .input('username', data.username)
-    .input('pass', data.pass)
+    .input('password', data.password)
     .query(
       `UPDATE registration SET 
          name = @name, 
@@ -54,7 +54,7 @@ exports.updateRecord = async (id, data) => {
          base_prize = @base_prize, 
          available_members = @available_members, 
          username = @username, 
-         pass = @pass 
+         password = @password 
        WHERE id = @id
        OUTPUT INSERTED.*`
     );

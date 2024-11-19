@@ -36,9 +36,16 @@ console.log('sanjai',this.registerForm.value);
 if(this.registerForm.valid){
   this.loginService.postRegister(this.registerForm.value).subscribe({
     next: (res:any)=>{
-      console.log('Res',res);      
+      console.log('Res',res);
+      if(res.status == 201) {
+        this.route.navigateByUrl('/auth/login')
+        this.toastr.success(res.message)
+      }else{
+        this.toastr.error(res.message)
+      }
     },
     error:(err)=>{
+      this.toastr.error("Something went wrong")
       console.log('Res',err);
     }
   })

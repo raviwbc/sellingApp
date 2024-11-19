@@ -5,7 +5,7 @@ const teamsModel = require('../models/teamsModel');
 exports.getAllRecords = async (req, res) => {
   try {
     const records = await model.getAllRecords();
-    res.json(records);
+    res.json({data : records, status : 201, message : "User created successfully"});
   } catch (err) {
     res.status(500).json({ error: 'Failed to retrieve records' });
   }

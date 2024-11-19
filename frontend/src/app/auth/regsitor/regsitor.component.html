@@ -11,9 +11,9 @@
         <option value="" disabled>Select Team</option>
         <option *ngFor="let item of teamList">{{item.teamName}}</option>
       </select>
-    <input class="form-control" type="text" placeholder="username" formControlName = "userName">
-    <input class="form-control" type="password" placeholder="password" formControlName = "password">
-    <button type="button" class="btn btn-primary  outline-btn mx-2" (click)="redirectTo()">LOGIN</button>
+    <input autocomplete="off" class="form-control" type="text" placeholder="username" formControlName = "userName">
+    <input autocomplete="off" class="form-control" type="password" placeholder="password" formControlName = "password">
+    <button type="button" class="btn btn-primary  outline-btn mx-2" >LOGIN</button>
     <button type="button" class="btn btn-primary main-btn" (click)="fetch()">SUBMIT</button>
 </form>
 </div>
