@@ -1,5 +1,6 @@
 /backend/node_modules
 /backend/bid-api/node_modules
+/backend/bid-api/config/dbconfig.js
 /frontend/node_modules/
 /backups
 /dist

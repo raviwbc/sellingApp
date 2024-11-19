@@ -28,6 +28,7 @@ registerData:any[]=[]
       next:(res)=>{
         if(res.status== 200){
           localStorage.setItem('BidingAppToken', res.jwtToken)
+          localStorage.setItem('team', res.data.tname)
           this.toastr.success(res?.message) 
           this.route.navigateByUrl('/main')
         }

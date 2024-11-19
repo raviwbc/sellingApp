@@ -18,18 +18,21 @@ exports.getRecordById = async (id) => {
 
 exports.createRecord = async (data) => {
   const pool = await poolPromise;
+  console.log(data)
   const result = await pool
     .request()
     .input('name', data.name)
-    .input('tname', data.tname)
-    .input('base_prize', data.base_prize)
-    .input('available_members', data.available_members)
-    .input('username', data.username)
-    .input('pass', data.pass)
+    .input('tname', data.teamName)
+    .input('userType', 'buyer')
+    .input('base_prize', 0)
+    .input('available_members', 0)
+    .input('username', data.userName)
+    .input('pass', data.password)
     .query(
-      `INSERT INTO registration (name, tname, base_prize, available_members, username, pass) 
-       OUTPUT INSERTED.* VALUES (@name, @tname, @base_prize, @available_members, @username, @pass)`
+      `INSERT INTO registration (name, tname, userType, base_prize, avaibale_members, username, pass) 
+       OUTPUT INSERTED.* VALUES (@name, @tname, @userType, @base_prize, @available_members, @username, @pass)`
     );
+    console.log(result)
   return result.recordset[0];
 };
 
@@ -66,3 +69,4 @@ exports.deleteRecord = async (id) => {
     .query('DELETE FROM registration WHERE id = @id');
   return result.rowsAffected[0];
 };
+

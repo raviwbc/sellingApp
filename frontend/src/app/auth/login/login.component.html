@@ -5,8 +5,8 @@
     <div class="innerContain">
         <h3>Let's Go..!</h3>
         <form [formGroup]="loginForm">
-        <input class="form-control" type="text" placeholder="Enter your name" formControlName = "username">
-        <input class="form-control" type="text" placeholder="Enter your name" formControlName = "password">
+        <input class="form-control" type="text" placeholder="username" formControlName = "username">
+        <input class="form-control" type="password" placeholder="Password" formControlName = "password">
         <button type="button" class="btn btn-primary mx-2 outline-btn" (click)="redirectTo()">REGISTER</button>
         <button type="button" class="btn btn-primary main-btn" (click)="fetch()">SUBMIT</button>
      

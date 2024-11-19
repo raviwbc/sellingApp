@@ -7,7 +7,6 @@ exports.login = async (data) => {
       .input('username', data.username)
       .input('password', data.password)
       .query('SELECT * FROM registration WHERE username = @username and pass = @password');
-      console.log(result)
       
-    return result.rowsAffected[0];
+    return {rowsAffected : result?.rowsAffected[0], data : result?.recordset[0]} 
   };

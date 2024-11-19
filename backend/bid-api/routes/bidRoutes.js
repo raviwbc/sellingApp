@@ -6,7 +6,7 @@ const verifyToken = require('../config/jwtVerify')
 
 router.get('/', verifyToken, controller.getAllRecords);
 router.get('/:id', verifyToken, controller.getRecordById);
-router.post('/', verifyToken, controller.createRecord);
+router.post('/',  controller.createRecord);
 router.put('/:id', verifyToken, controller.updateRecord);
 router.delete('/:id', verifyToken, controller.deleteRecord);
 
