@@ -1,9 +1,19 @@
 // controllers/recordController.js
 const model = require('../models/registorModel');
+const teamsModel = require('../models/teamsModel');
 
 exports.getAllRecords = async (req, res) => {
   try {
     const records = await model.getAllRecords();
+    res.json(records);
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to retrieve records' });
+  }
+};
+
+exports.getAllTeamsRecords = async (req, res) => {
+  try {
+    const records = await teamsModel.getAllRecords();
     res.json(records);
   } catch (err) {
     res.status(500).json({ error: 'Failed to retrieve records' });
@@ -25,6 +35,7 @@ exports.createRecord = async (req, res) => {
     const newRecord = await model.createRecord(req.body);
     res.status(201).json(newRecord);
   } catch (err) {
+    console.log(err)
     res.status(500).json({ error: 'Failed to create record' });
   }
 };

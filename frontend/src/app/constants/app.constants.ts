@@ -4,12 +4,12 @@ export const APP_CONSTANTS = {
 
         // FIND BOOKING DETAILS 
         LOGIN : '/login',
-        REGISTOR: '/registration',
+        REGISTOR: '/registor',
 
         CURRENTBID : '/currentBid',
         CURRENTAUTHIS : '/currentautHistory',
         COMPLETEDLIST :'/completedList',
-        TEAMLIST:'/teamList'
+        TEAMLIST:'/teams'
         
     }
 }

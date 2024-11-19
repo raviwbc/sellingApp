@@ -14,8 +14,8 @@ constructor(private fb:FormBuilder,private loginService:LoginService,private rou
 registerForm:FormGroup =this.fb.group({
   name:['',Validators.required],
   teamName:['',Validators.required],
-  basePrice:['',Validators.required],
-  avlMembers:['',Validators.required],
+  userName:['',Validators.required],
+  password:['',Validators.required]
 
 })
 teamList:any[]=[]
@@ -33,7 +33,7 @@ ngOnInit(): void {
 }
 fetch(){
 console.log('sanjai',this.registerForm.value);
-if(this.registerForm.controls['name'].value != '' && this.registerForm.controls['teamName'].value != '' && this.registerForm.controls['basePrice'].value != ''  && this.registerForm.controls['avlMembers'].value != '' ){
+if(this.registerForm.valid){
   this.loginService.postRegister(this.registerForm.value).subscribe({
     next: (res:any)=>{
       console.log('Res',res);      

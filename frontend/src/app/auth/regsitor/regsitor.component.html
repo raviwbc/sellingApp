@@ -8,10 +8,11 @@
     <input class="form-control" type="text" placeholder="Enter your name" formControlName = "name">
     <!-- <input class="form-control" type="text" placeholder="Enter your team name" formControlName = "teamName" > -->
     <select class="form-select" aria-label="Select Team Name" formControlName = "teamName" style="margin-top: 20px;">
+        <option value="" disabled>Select Team</option>
         <option *ngFor="let item of teamList">{{item.teamName}}</option>
       </select>
-    <input class="form-control" type="text" placeholder="Enter the base price " formControlName = "basePrice">
-    <input class="form-control" type="text" placeholder="Enter the available members " formControlName = "avlMembers">
+    <input class="form-control" type="text" placeholder="username" formControlName = "userName">
+    <input class="form-control" type="password" placeholder="password" formControlName = "password">
     <button type="button" class="btn btn-primary  outline-btn mx-2" (click)="redirectTo()">LOGIN</button>
     <button type="button" class="btn btn-primary main-btn" (click)="fetch()">SUBMIT</button>
 </form>
