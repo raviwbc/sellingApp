@@ -27,13 +27,14 @@ ngOnDestroy(){
   getCurrentBid(){
     this.mainService.getCurrentBid().pipe(takeUntil(this.destroy$)).subscribe({
       next : (resp:currentBid[])=>{
-        console.log()
+        debugger
         this.currentItem = resp[0]
         if(resp.length){
           if(!this.historyInterval){
           this.loophistory()
         }
         }else{
+          this.bidHistory = []
           console.log(this.historyInterval)
           clearInterval(this.historyInterval)
         } 

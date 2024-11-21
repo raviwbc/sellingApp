@@ -13,6 +13,7 @@ exports.getAllRecords = async (req, res) => {
 
 exports.getAllTeamsRecords = async (req, res) => {
   try {
+    console.log('1')
     const records = await teamsModel.getAllRecords();
     res.json(records);
   } catch (err) {

@@ -1,5 +1,5 @@
 export const APP_CONSTANTS = {
-    SERVICE_BASE_URL: "https://192.168.1.107:4433",
+    SERVICE_BASE_URL: "https://localhost:4433",
     API: {
 
         // FIND BOOKING DETAILS 

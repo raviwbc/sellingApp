@@ -12,6 +12,7 @@ const bidHistory = require('./routes/bidHistory');
 const loginController = require('./controllers/loginController');
 const registorController = require('./controllers/registorController');
 const userRoutes = require('./routes/userData');
+const myteamRoutes = require('./routes/myTeamRoutes')
 const verifyToken = require('./config/jwtVerify')
 const app = express();
 const router = express.Router()
@@ -37,6 +38,7 @@ app.use('/registor', registorRoutes);
 app.use('/completedList', completedListRoutes);
 app.use('/currentBid', currentBidRoutes);
 app.use('/currentautHistory', bidHistory)
+app.use('/myteam', myteamRoutes)
 
 https.createServer(options, app).listen(4433, () => {
   console.log('HTTPS server running on port 443');

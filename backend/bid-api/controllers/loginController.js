@@ -15,13 +15,13 @@ exports.loginAccount = async (req, res) => {
       }else{
         res.json({message : 'user not exist', status: 404});
       }
-      
     } catch (err) {
       res.status(500).json({ error: 'login failed' });
     }
   };
 
 exports.currentUser = async (req, res) => {
+  console.log(req)
   const data = req.user;
   console.log(data)
   const currentUser = {

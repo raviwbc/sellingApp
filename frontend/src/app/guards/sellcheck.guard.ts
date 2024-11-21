@@ -18,13 +18,13 @@ export class SellcheckGuard implements CanActivate {
         console.log(route.routeConfig?.path, data.userType)
         debugger
         if(route.routeConfig?.path == 'sell'){
-          if(data.userType == 'Admin' || data.userType == 'Seller'){
+          if(data.userType == 'admin' || data.userType == 'Seller'){
             resolve(true)
           }else{
           this.router.navigateByUrl('/main/home')
           resolve(false)}
         }else if(route.routeConfig?.path == 'buy'){
-          if(data.userType == 'Admin' || data.userType == 'buyer'){
+          if(data.userType == 'buyer'){
             resolve(true)
           }else{
           this.router.navigateByUrl('/main/home')
