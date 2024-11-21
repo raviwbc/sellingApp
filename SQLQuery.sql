@@ -79,3 +79,25 @@ delete registration where username='sanjai'
 select * from registration
 
 insert into registration values('ravi', 'PP', 'buyer', 90, 3,'ravi_pp', 'admin@123')
+
+
+
+select * from registration
+
+
+
+select * from completed_list
+
+truncate table completed_list
+
+select * from completed_list where tname='MI'
+
+SELECT SUM(prize) AS total FROM completed_list WHERE tname='MI'
+
+
+
+
+select * from registration
+
+insert into registration values('kasi', 'CSK', 'buyer', 0 ,  0 , 'csk', '123456')
+insert into registration values('admin', 'MI', 'admin', 0 ,  0 , 'admin', '123456')
