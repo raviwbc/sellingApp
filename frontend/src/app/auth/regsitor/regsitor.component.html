@@ -13,7 +13,7 @@
       </select>
     <input autocomplete="off" class="form-control" type="text" placeholder="username" formControlName = "userName">
     <input autocomplete="off" class="form-control" type="password" placeholder="password" formControlName = "password">
-    <button type="button" class="btn btn-primary  outline-btn mx-2" >LOGIN</button>
+    <button type="button" class="btn btn-primary  outline-btn mx-2" (click)="redirectTo()" >LOGIN</button>
     <button type="button" class="btn btn-primary main-btn" (click)="fetch()">SUBMIT</button>
 </form>
 </div>

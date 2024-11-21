@@ -21,7 +21,7 @@ exports.createRecord = async (data) => {
   const pool = await poolPromise;
   const result = await pool
     .request()
-    .input('pname', data.name)
+    .input('pname', data.pname)
     .input('tname', data.tname)
     .input('bid_history', data.bid_history)
     .input('prize', data.prize)

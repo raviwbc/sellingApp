@@ -1,7 +1,7 @@
 import { Component, OnDestroy } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import { Subject,takeUntil } from 'rxjs';
-import { completedList, currentBid, getAcuHistory } from 'src/app/model/main';
+import { map, Subject,takeUntil } from 'rxjs';
+import { completedList, currentBid, currentUser, getAcuHistory } from 'src/app/model/main';
 import { MainService } from 'src/app/service/main.service';
 
 @Component({
@@ -18,6 +18,7 @@ completedList : completedList[]=[]
 destroy$ = new Subject<boolean>()
 destroyHistory$ = new Subject<boolean>()
 historyInterval:any;
+currentUser = new currentUser();
 ngOnDestroy(){
   this.destroy$.next(true)
   this.destroy$.unsubscribe();
@@ -80,15 +81,24 @@ ngOnDestroy(){
   completedItems(){
     this.mainService.getCompleteList().subscribe({
       next : (res:any)=>{
-        this.completedList = res
+        this.completedList = res.map((res:any)=>{
+          let data = JSON.parse(res.bid_history)
+          return {...res, bid_history : data}
+        })
+        console.log(this.completedList)
         console.log('Completed List Got')
         }
     })
   }
   ngOnInit(){
     this.mainService.getCurrentUser().subscribe({
-      next : ()=>{
-        
+      next : (res)=>{
+        this.currentUser = res;
+        this.mainService.getTeams().pipe(map((res:any)=>res.filter((resp:any)=>resp.teamName == this.currentUser.tname))).subscribe({
+          next: (resp1)=>{
+            this.currentUser.base_prize = resp1[0].availablePrize
+          }
+        })
       }
     })
     this.getCurrentBid()

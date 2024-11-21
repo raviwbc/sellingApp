@@ -1,5 +1,5 @@
 export const APP_CONSTANTS = {
-    SERVICE_BASE_URL: "http://localhost:3000",   
+    SERVICE_BASE_URL: "https://192.168.1.107:4433",
     API: {
 
         // FIND BOOKING DETAILS 
@@ -10,7 +10,6 @@ export const APP_CONSTANTS = {
         CURRENTAUTHIS : '/currentautHistory',
         COMPLETEDLIST :'/completedList',
         TEAMLIST:'/teams',
-        CURRENTUSER : '/currentUser'
-        
+        CURRENTUSER : '/currentUser'   
     }
 }
